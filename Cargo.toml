@@ -1,0 +1,11 @@
+[workspace]
+members = ["crates/web-sec-core", "crates/web-sec-cli"]
+resolver = "2"
+
+[workspace.package]
+edition = "2024"
+rust-version = "1.92"
+homepage = "https://github.com/stefanalfbo/web-sec"
+repository = "https://github.com/stefanalfbo/web-sec"
+authors = ["Stefan Alfbo <stefan.alfbo@gmail.com>"]
+license = "MIT"

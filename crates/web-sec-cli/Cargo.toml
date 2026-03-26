@@ -1,0 +1,21 @@
+[package]
+name = "web-sec-cli"
+version = "0.1.1"
+description = "The web-sec cli, which is a web security tool."
+edition = { workspace = true }
+rust-version = { workspace = true }
+homepage = { workspace = true }
+repository = { workspace = true }
+authors = { workspace = true }
+license = { workspace = true }
+readme = "README.md"
+keywords = ["web", "security", "cli", "tool"]
+categories = ["command-line-utilities", "security"]
+
+[[bin]]
+name = "web-sec"
+path = "src/main.rs"
+
+[dependencies]
+clap = { version = "4.5.54", features = ["derive"] }
+web-sec-core = { version = "0.1.0", path = "../web-sec-core" }

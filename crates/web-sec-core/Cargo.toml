@@ -1,0 +1,15 @@
+[package]
+name = "web-sec-core"
+version = "0.1.0"
+description = "Core library for the web-sec tool."
+edition = { workspace = true }
+rust-version = { workspace = true }
+homepage = { workspace = true }
+repository = { workspace = true }
+authors = { workspace = true }
+license = { workspace = true }
+readme = "README.md"
+keywords = ["web", "security", "core", "library"]
+categories = ["command-line-utilities", "security"]
+
+[dependencies]
