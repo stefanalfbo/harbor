@@ -1,5 +1,12 @@
 pub mod analysis_result;
 pub mod analyze;
+pub mod analyze_cookies;
+pub mod analyze_cors;
 pub mod analyze_csp;
+pub mod analyze_hsts;
+pub mod analyze_referrer_policy;
+pub mod analyze_x_content_type_options;
+pub mod analyze_x_frame_options;
 pub mod har_scanner;
+pub mod scoring;
 pub mod severity;
