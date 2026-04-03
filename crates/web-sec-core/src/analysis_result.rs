@@ -6,6 +6,9 @@ pub struct AnalysisResult {
     pub severity: Severity,
     pub name: String,
     pub comment: String,
+    /// Score impact for this result. Negative values are penalties deducted
+    /// from the baseline; positive values are bonuses added when score >= 90.
+    pub score_impact: i32,
 }
 
 impl AnalysisResult {
@@ -18,7 +21,14 @@ impl AnalysisResult {
             severity,
             name: name.into(),
             comment: comment.into(),
+            score_impact: 0,
         }
+    }
+
+    /// Set the score impact for this result.
+    pub fn with_score(mut self, score_impact: i32) -> Self {
+        self.score_impact = score_impact;
+        self
     }
 }
 
@@ -32,6 +42,7 @@ mod tests {
         assert_eq!(result.severity, Severity::Ok);
         assert_eq!(result.name, "Test Name");
         assert_eq!(result.comment, "Test Comment");
+        assert_eq!(result.score_impact, 0);
     }
 
     #[test]
@@ -44,11 +55,24 @@ mod tests {
     }
 
     #[test]
+    fn with_score_sets_score_impact() {
+        let result = AnalysisResult::new(Severity::Ok, "Name", "Comment").with_score(10);
+        assert_eq!(result.score_impact, 10);
+    }
+
+    #[test]
+    fn with_score_accepts_negative_values() {
+        let result = AnalysisResult::new(Severity::Fail, "Name", "Comment").with_score(-25);
+        assert_eq!(result.score_impact, -25);
+    }
+
+    #[test]
     fn clone_produces_independent_copy() {
-        let original = AnalysisResult::new(Severity::Warning, "Name", "Comment");
+        let original = AnalysisResult::new(Severity::Warning, "Name", "Comment").with_score(-5);
         let cloned = original.clone();
         assert_eq!(original.severity, cloned.severity);
         assert_eq!(original.name, cloned.name);
         assert_eq!(original.comment, cloned.comment);
+        assert_eq!(original.score_impact, cloned.score_impact);
     }
 }
