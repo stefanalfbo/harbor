@@ -6,10 +6,11 @@ edition = { workspace = true }
 rust-version = { workspace = true }
 homepage = { workspace = true }
 repository = { workspace = true }
+documentation = "https://docs.rs/harbor-cli"
 authors = { workspace = true }
 license = { workspace = true }
 readme = "README.md"
-keywords = ["web", "security", "cli", "tool"]
+keywords = ["har", "security", "headers", "scanner", "cli"]
 categories = ["command-line-utilities", "security"]
 
 [[bin]]

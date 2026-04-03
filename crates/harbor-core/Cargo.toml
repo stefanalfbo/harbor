@@ -6,11 +6,12 @@ edition = { workspace = true }
 rust-version = { workspace = true }
 homepage = { workspace = true }
 repository = { workspace = true }
+documentation = "https://docs.rs/harbor-core"
 authors = { workspace = true }
 license = { workspace = true }
 readme = "README.md"
-keywords = ["web", "security", "library"]
-categories = ["command-line-utilities", "security"]
+keywords = ["har", "security", "headers", "scanner", "observatory"]
+categories = ["security"]
 
 [dependencies]
 har = "0.9"
